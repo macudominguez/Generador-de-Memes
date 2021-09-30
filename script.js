@@ -53,16 +53,19 @@ const actFiltros=()=>{
     $('image-meme').style.filter=`brightness(${brightness}) opacity(${opacity}) contrast(${contrast}%) blur(${blur}px) grayscale(${grayscale}%) sepia(${sepia}%) hue-rotate(${hue}deg) saturate(${saturate}%) invert(${invert})`
 }
 
-/*const reset = document.getElementById('default-filters-button')
-let count=0;*/
+const restablecer =()=>{ // solo se restablece el primer valor, volver a mirar esta fución
+    $('brightness-slider').value=1
+    $('opacity-slider').value=1
+    $('contrast-slider').value=100
+    $('blur-slider').value=0
+    $('grayscale-slider').value=0
+    $('sepia-slider').value=0
+    $('hue-slider').value=0
+    $('saturate-slider').value=100
+    $('invert-slider').value=-100
 
-/*const restablecer =()=>{
-    $('brightness-slider').value=100
-    $('opacity-slide').value=100
     actFiltros()
-}*/
-
-
+}
 
 // PANEL TEXTO // 
 const mostrarPanelTexto=()=>{
@@ -167,9 +170,10 @@ let comenzarImagen=()=>{  //esta funcion sirve para que se agregue la imagen al 
     $('hue-slider').addEventListener('change', actFiltros)
     $('saturate-slider').addEventListener('change', actFiltros)
     $('invert-slider').addEventListener('change', actFiltros)
+    $('default-filters-button').addEventListener('click',restablecer)
 }
 
-let cambiarPanel=()=>{
+let cambiarPanel =()=>{
     $('panel-img-button').addEventListener('click', () => {
         mostrarPanelImg()
       })
@@ -223,7 +227,8 @@ const inicializar =()=>{
     actTamFuente()
     actColFuente()
     actFonFuente()
-    restablecer()
+    restablecer() 
+    
 }
 
 window.onload=inicializar
