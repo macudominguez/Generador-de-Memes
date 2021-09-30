@@ -31,7 +31,6 @@ const mostrarPanelImg=()=>{
 const actualizarTextos=()=>{
     $('top-text').textContent=$('top-text-input').value
     $('bottom-text').textContent=$('bottom-text-input').value
-<<<<<<< HEAD
 }
 
 /*const MezclaImagen=(evento)=>{  // NO FUNCIONA !!!!! //
@@ -64,36 +63,6 @@ let count=0;*/
 }*/
 
 
-=======
-}
-
-const MezclaImagen=(evento)=>{  // NO FUNCIONA !!!!! //
-    $('blend-mode-color').innerText = evento.target.value.toUpperCase()
-    $('image-meme').style.backgroundColor = evento.target.value
-
-}
-
-const actFiltros=()=>{ // NO FUNCIONA !!!!! //
-    const brightness=$('brightness-slider').value
-    const opacity = $('opacity-slider').value
-    const contrast = $('contrast-slider').value
-    const blur = $('blur-slider').value
-    const grayscale = $('grayscale-slider').value
-    const hue = $('hue-slider').value
-    const sepia = $('sepia-slider').value
-    const saturate = $('saturate-slider').value
-    const invert = $('invert-slider').value
-    $('image-meme').style.filter=`brightness(${brightness})`
-    $('image-meme').style.filter=`opacity(${opacity}%)`
-    $('image-meme').style.filter=`contrast(${contrast}%)`
-    $('image-meme').style.filter=`blur(${blur}px)`
-    $('image-meme').style.filter=`grayscale(${grayscale}%)`
-    $('image-meme').style.filter=`hue(${hue}deg)`
-    $('image-meme').style.filter=`sepia(${sepia}%)`
-    $('image-meme').style.filter=`saturate(${saturate}%)`
-    $('image-meme').style.filter=`invert(${invert}%)`
-}
->>>>>>> 5eeb673969298d65ca438f880134c0347a360a67
 
 // PANEL TEXTO // 
 const mostrarPanelTexto=()=>{
@@ -114,7 +83,6 @@ const sinTextoSup=()=>{
     }
 }
 
-<<<<<<< HEAD
 /*const fondTrans=()=>{  REVEER!
 
 
@@ -126,19 +94,10 @@ const actFuente=()=>{
     $('bottom-text').style.fontFamily= fuente
 }
 
-=======
-const actFuente=()=>{
-    const fuente = $('text-font-select').value
-    $('top-text').style.fontFamily= fuente
-    $('bottom-text').style.fontFamily= fuente
-}
-
->>>>>>> 5eeb673969298d65ca438f880134c0347a360a67
 const actTamFuente=()=>{
     const tamfuente = $('text-size-input').value
     $('top-text').style.fontSize = `${tamfuente}px`
     $('bottom-text').style.fontSize = `${tamfuente}px`
-<<<<<<< HEAD
 }
 
 const actColFuente=()=>{
@@ -174,31 +133,13 @@ const contorno = (contornoTexto) =>{
 
     }
 } 
-=======
-}
-
-const actColFuente=()=>{
-    const colfuente = $('text-color-input').value
-    $('top-text').style.color = colfuente
-    $('bottom-text').style.color = colfuente
-}
-
-const actFonFuente = () => {
-      const colfondo = $('text-background-color-input').value
-      $('top-text').style.backgroundColor = colfondo
-      $('bottom-text').style.backgroundColor = colfondo
-}
->>>>>>> 5eeb673969298d65ca438f880134c0347a360a67
 
 //////////          EVENTOS          //////////
 
-<<<<<<< HEAD
 
 
 //////////          EVENTOS          //////////
 
-=======
->>>>>>> 5eeb673969298d65ca438f880134c0347a360a67
 let iniciarTemas= ()=>{
     $('dark-theme-button').addEventListener('click', cambiarClaro)
     $('light-theme-button').addEventListener('click', cambiarOscuro)
@@ -206,10 +147,6 @@ let iniciarTemas= ()=>{
 
 urlInput.oninput = () => {
     imagen_cargada.style.backgroundImage = `url("${urlInput.value}")`
-<<<<<<< HEAD
-=======
-    console.log("imagen_URL")
->>>>>>> 5eeb673969298d65ca438f880134c0347a360a67
 }
         
 boton_img_cargada.onclick = () => {
@@ -226,13 +163,8 @@ let comenzarImagen=()=>{  //esta funcion sirve para que se agregue la imagen al 
     $('contrast-slider').addEventListener('change', actFiltros)
     $('blur-slider').addEventListener('change', actFiltros)
     $('grayscale-slider').addEventListener('change', actFiltros)
-<<<<<<< HEAD
     $('sepia-slider').addEventListener('change', actFiltros)
     $('hue-slider').addEventListener('change', actFiltros)
-=======
-    $('hue-slider').addEventListener('change', actFiltros)
-    $('sepia-slider').addEventListener('change', actFiltros)
->>>>>>> 5eeb673969298d65ca438f880134c0347a360a67
     $('saturate-slider').addEventListener('change', actFiltros)
     $('invert-slider').addEventListener('change', actFiltros)
 }
@@ -255,9 +187,10 @@ const inicializarTexto=()=>{
     $('text-size-input').addEventListener('input',actTamFuente)  
     $('text-color-input').addEventListener('input',actColFuente)  
     $('text-background-color-input').addEventListener('input', actFonFuente)
- }
-<<<<<<< HEAD
- $('text-left-align-button').addEventListener('click', () => /*eventos alineacion de textos*/
+}
+ 
+ 
+$('text-left-align-button').addEventListener('click', () => /*eventos alineacion de textos*/
  alignText('left')
 )
 $('text-center-align-button').addEventListener('click', () =>
@@ -276,8 +209,6 @@ $('light-outline-button').addEventListener('click', () =>
 $('dark-outline-button').addEventListener('click', () =>
     contorno('oscuro')
     )  
-=======
->>>>>>> 5eeb673969298d65ca438f880134c0347a360a67
     
 //////////     LLAMADOR DE FUNCIONES     //////////
 
@@ -292,7 +223,6 @@ const inicializar =()=>{
     actTamFuente()
     actColFuente()
     actFonFuente()
-<<<<<<< HEAD
     restablecer()
 }
 
@@ -301,8 +231,3 @@ window.onload=inicializar
     
     
 
-=======
-}
-
-window.onload=inicializar
->>>>>>> 5eeb673969298d65ca438f880134c0347a360a67
