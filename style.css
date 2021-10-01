@@ -80,6 +80,13 @@ body.light-theme {
 .light-theme .panel-control-input:hover{
 background-color:#acc4ec;
 }
+.light-theme #download-meme-button{
+  background-color: #7cbdf1;
+}
+.light-theme #download-meme-button:hover,
+#download-meme-button:focus {
+  background-color:#acc4ec;
+}
   
   /*
     *********************************** 
