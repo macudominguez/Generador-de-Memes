@@ -13,12 +13,12 @@ const cambiarClaro = () =>{
     document.body.classList.add('light-theme')
 }
 
-// DESCARGAR MEME //
+// DESCARGAR MEME // (Permite descargar la imagen)
 const imagen_cargada = document.getElementById("image-meme")
 const boton_img_cargada = document.getElementById("download-meme-button")
 const urlInput = document.getElementById("url-img-input")
 
-// PANEL IMAGEN // 
+// PANEL IMAGEN // (Hace el cambio entre los asides)
 const cambiarImagen=(evento)=>{
     $('image-meme').style.backgroundImage = `url("${evento.target.value}")`
 }
@@ -28,7 +28,7 @@ const mostrarPanelImg=()=>{
     $(`panel-text`).classList.add('oculto')
 }
 
-const actualizarTextos=()=>{
+const actualizarTextos=()=>{ //Modifica los textos superior e inferior donde se ubica la imagen
     $('top-text').textContent=$('top-text-input').value
     $('bottom-text').textContent=$('bottom-text-input').value
 }
@@ -40,7 +40,7 @@ const actualizarTextos=()=>{
 }*/
 
 
-const actFiltros=()=>{
+const actFiltros=()=>{ // Esta funcion permite realizar cambios a la imagen 
     const brightness=$('brightness-slider').value
     const opacity=$('opacity-slider').value
     const contrast=$('contrast-slider').value
@@ -53,7 +53,7 @@ const actFiltros=()=>{
     $('image-meme').style.filter=`brightness(${brightness}) opacity(${opacity}) contrast(${contrast}%) blur(${blur}px) grayscale(${grayscale}%) sepia(${sepia}%) hue-rotate(${hue}deg) saturate(${saturate}%) invert(${invert})`
 }
 
-const restablecer =()=>{ // solo se restablece el primer valor, volver a mirar esta fución
+const restablecer =()=>{ // (Resetea los valores de filtros)
     $('brightness-slider').value=1
     $('opacity-slider').value=1
     $('contrast-slider').value=100
@@ -73,7 +73,7 @@ const mostrarPanelTexto=()=>{
     $(`panel-img`).classList.add('oculto')    
 }
 
-const sinTextoSup=()=>{
+const sinTextoSup=()=>{ //Esta funcion elimina el texto superior e inferior al seleccionar la opcion deseada
     if ($('no-top-text-checkbox').checked){
         $('top-text').classList.add('oculto')
     } 
@@ -86,41 +86,62 @@ const sinTextoSup=()=>{
     }
 }
 
-/*const fondTrans=()=>{  REVEER!
+const fondoTrans=()=>{ // Esta funcion aplica un efecto transparente a la imagen
+    if (!$('text-no-background-checkbox').checked){
+        const fondColor=('text-background-color-input').value
+        $('text-background-color').innerText = color.toUpperCase()
+        $('top-text').style.backgroundColor = fondColor
+        $('bottom-text').style.backgroundColor = fondColor
+    }
+    else {
+        $('top-text').style.backgroundColor = 'transparent'
+        $('bottom-text').style.backgroundColor = 'transparent'
+
+    }
+
+}
+
+const actualizarPosicionTexto = () => { // REVEER, no quita el efecto transparente
+    if ($('text-no-background-checkbox').checked) {
+      $('top-text').style.position = 'absolute'
+      $('bottom-text').style.position = 'absolute'
+    } else {
+      $('top-text').style.position = 'static'
+      $('bottom-text').style.position = 'static'
+    }
+}
 
 
-}*/
-
-const actFuente=()=>{
+const actFuente=()=>{ //Esta funcion permite realizar cambios de tipografia
     const fuente = $('text-font-select').value
     $('top-text').style.fontFamily= fuente
     $('bottom-text').style.fontFamily= fuente
 }
 
-const actTamFuente=()=>{
+const actTamFuente=()=>{ // Esta funcion realiza el cambio de tamaño de fuente
     const tamfuente = $('text-size-input').value
     $('top-text').style.fontSize = `${tamfuente}px`
     $('bottom-text').style.fontSize = `${tamfuente}px`
 }
 
-const actColFuente=()=>{
+const actColFuente=()=>{ // Esta funcion permite hacer el cambio de color de la fuente
     const colfuente = $('text-color-input').value
     $('top-text').style.color = colfuente
     $('bottom-text').style.color = colfuente
 }
 
-const actFonFuente = () => {
+const actFonFuente = () => { // Esta funcion permite hacer el cambio de fondo del texto
       const colfondo = $('text-background-color-input').value
       $('top-text').style.backgroundColor = colfondo
       $('bottom-text').style.backgroundColor = colfondo
 }
 
-const alignText = (align) => {  /*alineacion de texto*/
+const alignText = (align) => { // Esta funcion permite alinear el texto
     $('top-text').style.textAlign = align
     $('bottom-text').style.textAlign = align
 }
 
-const contorno = (contornoTexto) =>{
+const contorno = (contornoTexto) =>{ // Esta funcion permite dar contorno al texto
     let grosor = '2px'
     if (contornoTexto=='ninguno'){
         $('top-text').style.textShadow = 'none'
@@ -137,18 +158,15 @@ const contorno = (contornoTexto) =>{
     }
 } 
 
-//////////          EVENTOS          //////////
-
-
 
 //////////          EVENTOS          //////////
 
-let iniciarTemas= ()=>{
+let iniciarTemas= ()=>{ // Este evento sirve para realizar el cambio claro/oscuro
     $('dark-theme-button').addEventListener('click', cambiarClaro)
     $('light-theme-button').addEventListener('click', cambiarOscuro)
 }
 
-urlInput.oninput = () => {
+urlInput.oninput = () => { // Eventos que se aplican para la descarga de la imagen editada
     imagen_cargada.style.backgroundImage = `url("${urlInput.value}")`
 }
         
@@ -158,7 +176,7 @@ boton_img_cargada.onclick = () => {
 });
 };
 
-let comenzarImagen=()=>{  //esta funcion sirve para que se agregue la imagen al colocar la url sin necesidad de apretar un boton//
+let comenzarImagen=()=>{ //  Funcion creada para inicializar los eventos correspondientes a la imagen
     $('url-img-input').addEventListener('input',cambiarImagen)
   //  $('blend-mode-color-input').addEventListener('input',MezclaImagen)//
     $('brightness-slider').addEventListener('change', actFiltros)
@@ -173,7 +191,7 @@ let comenzarImagen=()=>{  //esta funcion sirve para que se agregue la imagen al 
     $('default-filters-button').addEventListener('click',restablecer)
 }
 
-let cambiarPanel =()=>{
+let cambiarPanel =()=>{ // Evento para realizar el cambio de asides // 
     $('panel-img-button').addEventListener('click', () => {
         mostrarPanelImg()
       })
@@ -182,7 +200,7 @@ let cambiarPanel =()=>{
       })
 }
 
-const inicializarTexto=()=>{
+const inicializarTexto=()=>{ // Funcion creada para inicializar los eventos correspondientes al texto 
     $('top-text-input').addEventListener('input',actualizarTextos)
     $('bottom-text-input').addEventListener('input',actualizarTextos)
     $('text-font-select').addEventListener('change',actFuente)  
@@ -191,10 +209,15 @@ const inicializarTexto=()=>{
     $('text-size-input').addEventListener('input',actTamFuente)  
     $('text-color-input').addEventListener('input',actColFuente)  
     $('text-background-color-input').addEventListener('input', actFonFuente)
+    $('text-no-background-checkbox').addEventListener('change', () => {
+        fondoTrans()
+        actualizarPosicionTexto()
+
+      })
 }
  
  
-$('text-left-align-button').addEventListener('click', () => /*eventos alineacion de textos*/
+$('text-left-align-button').addEventListener('click', () => // eventos alineacion de textos
  alignText('left')
 )
 $('text-center-align-button').addEventListener('click', () =>
@@ -203,7 +226,7 @@ $('text-center-align-button').addEventListener('click', () =>
 $('text-right-align-button').addEventListener('click', () =>
  alignText('right')
 )
-
+//eventos creados para el borde del texto
 $('no-outline-button').addEventListener('click', () =>
     contorno('ninguno')
     )
@@ -228,6 +251,8 @@ const inicializar =()=>{
     actColFuente()
     actFonFuente()
     restablecer() 
+    fondoTrans()
+    actualizarPosicionTexto()
     
 }
 
