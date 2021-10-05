@@ -33,7 +33,7 @@ const actualizarTextos=()=>{ //Modifica los textos superior e inferior donde se 
     $('bottom-text').textContent=$('bottom-text-input').value
 }
 
-/*const MezclaImagen=(evento)=>{  // NO FUNCIONA !!!!! //
+/*const MezclaImagen=(evento)=>{  // NO FUNCIONA. reveer !!!!! //
     $('blend-mode-color').innerText = evento.target.value.toUpperCase()
     $('image-meme').style.backgroundColor = evento.target.value
 
